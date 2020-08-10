@@ -1,25 +1,36 @@
 const button = document.getElementById('button');
-const audioElement = document.getElementById('audio');
+const synth = window.speechSynthesis;
+
+
 
 // Disable/Enable Button
 function toggleButton() {
   button.disabled = !button.disabled;
 }
 
-// VoiceRSS Speech Function
-function tellMe(joke) {
-  const jokeString = joke.trim().replace(/ /g, '%20');
-  // VoiceRSS Speech Parameters
-  VoiceRSS.speech({
-    key: 'YOUR_API_KEY_HERE',
-    src: jokeString,
-    hl: 'en-us',
-    r: 0,
-    c: 'mp3',
-    f: '44khz_16bit_stereo',
-    ssml: false,
-  });
-}
+// Speech Function
+const speakJoke = (jokeString) => {
+  // Check if speaking
+  if (synth.speaking) {
+    return;
+  }
+
+  // Get speak text
+  const speakText = new SpeechSynthesisUtterance(jokeString);
+
+  // Speak end
+  speakText.onend = e => {
+    toggleButton();
+  };
+
+  // Speak error
+  speakText.onerror = e => {
+    console.error('Something went wrong');
+  };
+
+  // Speak
+  synth.speak(speakText);
+};
 
 // Get jokes from Joke API
 async function getJokes() {
@@ -35,7 +46,7 @@ async function getJokes() {
       joke = data.joke;
     }
     // Passing Joke to VoiceRSS API
-    tellMe(joke);
+    speakJoke(joke);
     // Disable Button
     toggleButton();
   } catch (error) {
@@ -45,4 +56,3 @@ async function getJokes() {
 
 // Event Listeners
 button.addEventListener('click', getJokes);
-audioElement.addEventListener('ended', toggleButton);
