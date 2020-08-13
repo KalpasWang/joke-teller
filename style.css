@@ -1,11 +1,14 @@
 /* ROBOT.GIF from Giphy - https://giphy.com/gifs/robot-cinema-4d-eyedesyn-3o7abtn7DuREEpsyWY */
-
-html {
+* {
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 24px;
+  font-weight: bold;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
   background: #45badd;
 }
 
@@ -25,19 +28,17 @@ body {
 button {
   cursor: pointer;
   outline: none;
-  width: 200px;
-  height: 50px;
-  font-family: Courier, monospace;
-  font-size: 20px;
-  color: white;
-  background: #ff3482;
-  border: none;
-  border-radius: 5px;
+  padding: 10px 20px;
+  color: #4299E1;
+  background: white;
+  border: 1px solid #4299E1;
+  border-radius: 99px;
   box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-  filter: brightness(95%);
+  background: #4299E1;
+  color: white;
 }
 
 button:active {
@@ -49,6 +50,15 @@ button:disabled {
   filter: brightness(30%);
 }
 
+.text {
+  background: white;
+  color: #111111;
+  padding: 5px 10px;
+  margin: 1rem;
+  width: 70%;
+  height: 34px;
+}
+
 /* Media Query: Tablet or Smaller */
 @media screen and (max-width: 800px) {
   .container {
@@ -56,7 +66,7 @@ button:disabled {
     background-size: cover;
   }
 
-  button {
+  /* button {
     box-shadow: 5px 5px 30px 20px rgba(0, 0, 0, 0.5);
-  }
+  } */
 }
