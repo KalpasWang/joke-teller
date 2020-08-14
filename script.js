@@ -1,6 +1,6 @@
 const button = document.getElementById('button');
 const synth = window.speechSynthesis;
-
+const responseText = document.querySelector('#response-text');
 
 
 // Disable/Enable Button
@@ -17,6 +17,8 @@ const speakJoke = (jokeString) => {
 
   // Get speak text
   const speakText = new SpeechSynthesisUtterance(jokeString);
+  console.log(jokeString);
+  responseText.textContent = jokeString;
 
   // Speak end
   speakText.onend = e => {
@@ -33,7 +35,7 @@ const speakJoke = (jokeString) => {
 };
 
 // Get jokes from Joke API
-async function getJokes() {
+async function getJoke() {
   let joke = '';
   const apiUrl = 'https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,racist,sexist';
   try {
@@ -55,4 +57,4 @@ async function getJokes() {
 }
 
 // Event Listeners
-button.addEventListener('click', getJokes);
+// button.addEventListener('click', getJokes);

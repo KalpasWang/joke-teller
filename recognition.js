@@ -17,7 +17,7 @@ if(!SpeechRecognition){
   // }
   
   recognition.addEventListener('result', e => {
-    console.log(e);
+    // console.log(e);
     const transcript = Array.from(e.results)
       .map(result => result[0])
       .map(result => result.transcript)[0];
@@ -28,6 +28,9 @@ if(!SpeechRecognition){
 
   recognition.addEventListener('end', () => {
     console.log('Speech recognition has stopped.');
+    if(recordedText.textContent.includes('joke') || recordedText.textContent.includes('笑話')) {
+      getJoke();
+    }
   });
   
   speakBtn.addEventListener('click', () => {
