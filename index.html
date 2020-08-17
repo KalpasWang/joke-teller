@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joke Teller</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joke Teller</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <button id="button">Tell Me A Joke</button> 
-        <br><br>   
-        <button id="speak-btn"><i class="fas fa-microphone"></i></button>  
-        <div style="height: 200px;"></div> 
-        <p id="recorded-text" class="text"></p> 
-        <p id="response-text" class="text"></p> 
-        <!-- <audio id="audio" controls hidden></audio>    -->
+  <div class="container">
+    <h1>Joke Teller</h1>
+    <div class="head">
+      <img id="head" src="head.png">
     </div>
-    <!-- Script -->
-    <script src="recognition.js"></script>
-    <script src="script.js"></script>
+    <div>
+      <span id="text">Ask for a joke!</span> 
+    </div>
+  </div>
+  <div id="footer">
+    <div class="btn-wrapper">
+      <button id="speak-btn"><i class="fas fa-microphone fa-2x"></i></button>  
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
